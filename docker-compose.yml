@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/go/src/
     extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+      - "host.docker.internal:172.24.0.1"
 
   db:
     container_name: db_appbank
@@ -22,9 +22,9 @@ services:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=codebank
     ports:
-      - "54340:5432"
+      - "5434:5432"
     extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+      - "host.docker.internal:172.24.0.1"
 
   pgadmin:
     container_name: pgadmin_appbank
@@ -38,5 +38,5 @@ services:
     depends_on:
       - db
     extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+      - "host.docker.internal:172.24.0.1"
 
